@@ -3,6 +3,7 @@ package jmu.zzx.dormitory.service.impl;
 import jmu.zzx.dormitory.mapper.LoginMapper;
 import jmu.zzx.dormitory.pojo.DormitoryAdmin;
 import jmu.zzx.dormitory.pojo.Student;
+import jmu.zzx.dormitory.pojo.SystemAdmin;
 import jmu.zzx.dormitory.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,4 +28,9 @@ public class LoginServiceImpl implements LoginService {
         return loginMapper.getDormitoryAdminByCredentials(username, password);
     }
 
+    @Override
+    // 调取系统管理员身份的方法
+    public SystemAdmin authenticateAsSystemAdmin(String username, String password) {
+        return loginMapper.getSystemAdminByCredentials(username, password); // 调用Mapper的方法
+    }
 }

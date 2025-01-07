@@ -6,18 +6,18 @@ import java.time.LocalDateTime;
 
 
 public class Student {
-    private Integer id; // 学生的唯一标识符
-    private String number; // 学生的学号
-    private String name; // 学生的姓名
-    private String username; // 学生的登录用户名
-    private String password; // 学生的登录密码
-    private String gender; // 学生的性别
-    private Integer dormitory_Id; // 学生当前宿舍的ID
-    private Integer oldDormitory_Id; // 学生之前的宿舍ID（如果有的话）
-    private String dormitoryName; // 学生当前宿舍的名称
-    private String state; // 学生的状态（例如：在校、休学等）
-    private LocalDateTime create_Date; // 学生记录的创建日期和时间
-    private LocalDateTime update_Date; // 学生记录的最后更新日期和时间
+    private Integer id;
+    private String number;
+    private String name;
+    private String username;
+    private String password;
+    private String gender;
+    private Integer dormitory_Id;
+    private Integer oldDormitory_Id;
+    private String dormitoryName;
+    private String state;
+    private LocalDateTime create_Date;
+    private LocalDateTime update_Date;
 
     public String getNumber() {
         return number;

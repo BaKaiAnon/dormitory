@@ -3,17 +3,17 @@ package jmu.zzx.dormitory.pojo;
 import java.time.LocalDate;
 
 public class Records {
-    int id; // 记录的唯一标识符
-    String title; // 记录的标题
-    String content; // 记录的内容
-    String mark; // 记录的备注或标记
-    LocalDate time; // 记录的时间
-    String audit; // 记录的审核状态
-    int dormitoryId; // 宿舍的ID
-    int adminId; // 管理员的ID
-    private String building_name; // 宿舍楼的名称
-    private String dormitory_name; // 宿舍的名称
-    private String name; // 相关人员的姓名（可能是管理员或学生的姓名）
+    int id;
+    String title;
+    String content;
+    String mark;
+    LocalDate time;
+    String audit;
+    int dormitoryId;
+    int adminId;
+    private String building_name;
+    private String dormitory_name;
+    private String name;
 
     public int getId() {
         return id;

@@ -3,6 +3,7 @@ package jmu.zzx.dormitory.controller;
 import jakarta.servlet.http.HttpSession;
 import jmu.zzx.dormitory.pojo.DormitoryAdmin;
 import jmu.zzx.dormitory.pojo.Student;
+import jmu.zzx.dormitory.pojo.SystemAdmin;
 import jmu.zzx.dormitory.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,6 +67,16 @@ public class LoginController {
                     session.setAttribute("dormitoryAdmin", dormitoryAdmin);
                     // 登录成功，重定向到宿舍管理员页面
                     modelAndView.setViewName("redirect:/dormitoryAdmin");
+                } else { // 如果验证失败
+                    modelAndView.setViewName("login"); // 返回登录页面
+                    modelAndView.addObject("error", "无效信息"); // 添加错误信息
+                }
+                break;
+            case "admin": // 如果角色是系统管理员
+                SystemAdmin systemAdmin = loginService.authenticateAsSystemAdmin(username, password); // 调用服务验证系统管理员身份
+                if (systemAdmin != null) { // 如果验证成功
+                    session.setAttribute("systemAdmin", systemAdmin); // 将系统管理员对象存储在session中
+                    modelAndView.setViewName("redirect:/systemAdmin"); // 登录成功，重定向到系统管理员页面
                 } else { // 如果验证失败
                     modelAndView.setViewName("login"); // 返回登录页面
                     modelAndView.addObject("error", "无效信息"); // 添加错误信息
